@@ -1,21 +1,29 @@
-import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import type { Metadata } from "next";
 
-const inter = Inter({ subsets: ['latin'] })
+import GlobalStyles from "@/styles/globalStyles";
 
 export const metadata: Metadata = {
-  title: 'MKS Serviços',
-  description: 'Teste técnico Mks Serviços',
-}
+  title: "MKS Serviços",
+  description: "Teste técnico Mks Serviços",
+};
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <head>
+        <style>
+          @import
+          url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap");
+        </style>
+      </head>
+      <body>
+        <GlobalStyles />
+        {children}
+      </body>
     </html>
-  )
+  );
 }
