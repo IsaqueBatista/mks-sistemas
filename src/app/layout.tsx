@@ -1,3 +1,5 @@
+import Head from "next/head";
+
 import type { Metadata } from "next";
 
 import GlobalStyles from "@/styles/globalStyles";
@@ -13,13 +15,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <head>
+    <html lang="pt-BR">
+      <Head>
         <style>
           @import
           url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap");
         </style>
-      </head>
+      </Head>
       <body>
         <GlobalStyles />
         {children}
