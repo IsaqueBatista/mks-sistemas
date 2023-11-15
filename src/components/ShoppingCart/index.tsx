@@ -1,16 +1,23 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import watch from "../../../public/assets/apple-watch.svg";
 import * as S from "./styles";
 
-export default function ShoppingCart() {
+interface CartItem {
+  id: number;
+  name: string;
+  price: number;
+  quantity: number;
+}
+
+const ShoppingCart: React.FC = () => {
   const [quantity, setQuantity] = useState(1);
   const [isCartVisible, setIsCartVisible] = useState(true);
-  const [cartItems, setCartItems] = useState([
+  const [cartItems, setCartItems] = useState<CartItem[]>([
     { id: 1, name: "Apple Watch Series 4 GPS", price: 399, quantity: 1 },
   ]);
 
-  const increaseQuantity = (itemId) => {
+  const increaseQuantity = (itemId: number) => {
     setCartItems((prevItems) =>
       prevItems.map((item) =>
         item.id === itemId ? { ...item, quantity: item.quantity + 1 } : item
@@ -18,7 +25,7 @@ export default function ShoppingCart() {
     );
   };
 
-  const decreaseQuantity = (itemId) => {
+  const decreaseQuantity = (itemId: number) => {
     setCartItems((prevItems) =>
       prevItems.map((item) =>
         item.id === itemId && item.quantity > 1
@@ -32,7 +39,7 @@ export default function ShoppingCart() {
     setIsCartVisible(false);
   };
 
-  const deleteItem = (itemId) => {
+  const deleteItem = (itemId: number) => {
     setCartItems((prevItems) => prevItems.filter((item) => item.id !== itemId));
   };
 
@@ -105,4 +112,6 @@ export default function ShoppingCart() {
       )}
     </>
   );
-}
+};
+
+export default ShoppingCart;

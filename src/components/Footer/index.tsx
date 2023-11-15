@@ -1,11 +1,12 @@
-"use client";
-
+import React from "react";
 import * as S from "./styles";
 
-export default function Footer() {
+const Footer: React.FC = () => {
   return (
     <>
       <S.P>MKS sistemas © Todos os direitos reservados</S.P>
     </>
   );
-}
+};
+
+export default Footer;

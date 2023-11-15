@@ -1,6 +1,5 @@
-"use client";
+import { FC, MouseEvent } from "react";
 import Image from "next/image";
-
 import watch from "../../../public/assets/apple-watch.svg";
 import jbl from "../../../public/assets/jbl-speaker.svg";
 import iphone from "../../../public/assets/iphone-x.svg";
@@ -14,7 +13,16 @@ import bag from "../../../public/assets/shopping-bag.svg";
 
 import * as S from "./styles";
 
-export default function Card() {
+interface CardProps {
+  addToCart: (item: {
+    id: number;
+    name: string;
+    price: number;
+    quantity: number;
+  }) => void;
+}
+
+const Card: FC<CardProps> = ({ addToCart }) => {
   return (
     <S.Container>
       <S.Main>
@@ -27,12 +35,21 @@ export default function Card() {
             <p>R$399,00</p>
           </S.DivValue>
           <S.P>Redesigned from scratch and completely revised.</S.P>
-          <S.Button>
+          <S.Button
+            onClick={(event: MouseEvent) => {
+              event.stopPropagation();
+              addToCart({
+                id: 1,
+                name: "Apple Watch Series 4 GPS",
+                price: 399,
+                quantity: 1,
+              });
+            }}
+          >
             <Image src={bag} alt="Image Bag" />
             Comprar
           </S.Button>
         </S.Card>
-
         <S.Card>
           <S.ContainerImage className="Container-image">
             <Image src={jbl} alt="Watch Image" className="image-card" />
@@ -141,3 +158,4 @@ export default function Card() {
     </S.Container>
   );
 }
+export default Card;
