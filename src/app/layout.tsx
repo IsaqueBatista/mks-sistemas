@@ -5,8 +5,8 @@ import type { Metadata } from "next";
 import GlobalStyles from "@/styles/globalStyles";
 
 export const metadata: Metadata = {
-  title: "MKS Serviços",
-  description: "Teste técnico Mks Serviços",
+  title: 'MKS Serviços',
+  description: 'Teste técnico Mks Serviços',
 };
 
 export default function RootLayout({
