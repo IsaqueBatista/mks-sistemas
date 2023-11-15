@@ -10,7 +10,8 @@ export const Header = styled.header`
   padding: 0 60px;
 
   @media (max-width: 434px) {
-    padding: 0 20px;    }
+    padding: 0 20px;
+  }
 `;
 
 export const ImagesHeader = styled.div`
@@ -48,6 +49,8 @@ export const Button = styled.button`
   font-size: 18px;
   font-weight: 700;
   gap: 3px;
+
+  cursor: pointer;
 
   .img-button-header {
     margin-right: 13px;
