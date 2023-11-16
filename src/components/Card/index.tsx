@@ -14,7 +14,7 @@ import bag from "../../../public/assets/shopping-bag.svg";
 import * as S from "./styles";
 
 interface CardProps {
-  addToCart: (item: {
+  addToCart?: (item: {
     id: number;
     name: string;
     price: number;
@@ -38,12 +38,14 @@ const Card: FC<CardProps> = ({ addToCart }) => {
           <S.Button
             onClick={(event: MouseEvent) => {
               event.stopPropagation();
-              addToCart({
-                id: 1,
-                name: "Apple Watch Series 4 GPS",
-                price: 399,
-                quantity: 1,
-              });
+              if (addToCart) {
+                addToCart({
+                  id: 1,
+                  name: "Apple Watch Series 4 GPS",
+                  price: 399,
+                  quantity: 1,
+                });
+              }
             }}
           >
             <Image src={bag} alt="Image Bag" />
@@ -157,5 +159,5 @@ const Card: FC<CardProps> = ({ addToCart }) => {
       </S.Main>
     </S.Container>
   );
-}
+};
 export default Card;
