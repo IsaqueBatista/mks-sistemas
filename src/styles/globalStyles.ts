@@ -1,5 +1,5 @@
-"use client" 
-import { createGlobalStyle } from 'styled-components'
+"use client";
+import { createGlobalStyle } from "styled-components";
 
 export default createGlobalStyle`
     * {
@@ -8,4 +8,7 @@ export default createGlobalStyle`
         box-sizing: border-box;
         font-family: 'Montserrat', sans-serif;  
     }
-`
+    body {
+        height: 100%;
+    }
+`;

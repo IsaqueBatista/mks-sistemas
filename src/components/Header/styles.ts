@@ -29,6 +29,14 @@ export const ImagesHeader = styled.div`
     margin-top: 8px;
     margin-left: 10px;
   }
+
+  @media (max-width: 340px) {
+    .image-1,
+    .image-2 {
+      width: 50px;
+      height: auto;
+    }
+  }
 `;
 export const Button = styled.button`
   display: flex;
@@ -54,5 +62,10 @@ export const Button = styled.button`
 
   .img-button-header {
     margin-right: 13px;
+  }
+  @media (max-width: 340px) {
+    width: 77px;
+    height: 34px;
+    transition: 0.3s ease;
   }
 `;

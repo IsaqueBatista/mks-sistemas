@@ -2,10 +2,13 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
-  height: 100vh;
-  width: 100vw;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+
+  margin: 50px auto;
 `;
 
 export const Main = styled.main`
@@ -17,6 +20,31 @@ export const Main = styled.main`
   grid-template-rows: auto;
 
   gap: 10px;
+
+  @media (max-width: 1000px) {
+    width: auto;
+    height: auto;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto;
+  }
+  @media (max-width: 700px) {
+    width: auto;
+    height: auto;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+  }
+  @media (max-width: 500px) {
+    width: auto;
+    height: auto;
+
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: auto;
+  }
 `;
 
 export const Card = styled.div`
